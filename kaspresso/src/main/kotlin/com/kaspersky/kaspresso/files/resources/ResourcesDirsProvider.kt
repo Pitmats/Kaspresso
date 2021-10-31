@@ -7,4 +7,6 @@ import java.io.File
  */
 interface ResourcesDirsProvider {
     fun provide(dest: File, subDir: String? = null): File
+
+    fun provideParentPath(dest: String, subDir: String? = null): String
 }

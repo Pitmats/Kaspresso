@@ -36,6 +36,17 @@ class DefaultResourceFilesProvider(
         ).resolve(resFileName)
     }
 
+    override fun provideScreenshotParentPath(subDir: String?): String {
+        val parentPath = resourcesDirsProvider.provideParentPath(
+            resourcesRootDirsProvider.screenshotsRootDir.path,
+            subDir
+        )
+        return when {
+            parentPath.endsWith(File.separatorChar) -> parentPath
+            else -> parentPath + File.separatorChar
+        }
+    }
+
     override fun provideVideoFile(tag: String, subDir: String?): File {
         val resFileName: String = resourceFileNamesProvider.getFileName(
             tag,

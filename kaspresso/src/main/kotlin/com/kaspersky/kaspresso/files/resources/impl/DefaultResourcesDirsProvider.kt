@@ -18,6 +18,20 @@ class DefaultResourcesDirsProvider(
         return dirsProvider.provideCleared(resourcesDest)
     }
 
+    override fun provideParentPath(dest: String, subDir: String?): String {
+        val testMethod: TestMethod = Thread.currentThread().stackTrace.findTestMethod()
+        val resourcesDirName: String = resourcesDirNameProvider.provideResourcesDirName(testMethod)
+        val destWithSubDir = when {
+            subDir == null -> dest
+            dest.endsWith(File.separatorChar) -> dest + subDir
+            else -> dest + File.separatorChar + subDir
+        }
+        return when {
+            destWithSubDir.endsWith(File.separatorChar) -> destWithSubDir + resourcesDirName
+            else -> destWithSubDir + File.separatorChar + resourcesDirName
+        }
+    }
+
     private fun resolveResourcesDirDest(rootDir: File, subDir: String? = null): File {
         val testMethod: TestMethod = Thread.currentThread().stackTrace.findTestMethod()
         val resourcesDirName: String = resourcesDirNameProvider.provideResourcesDirName(testMethod)

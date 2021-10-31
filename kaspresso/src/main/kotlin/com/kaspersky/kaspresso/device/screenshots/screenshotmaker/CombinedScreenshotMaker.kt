@@ -1,7 +1,5 @@
 package com.kaspersky.kaspresso.device.screenshots.screenshotmaker
 
-import java.io.File
-
 /**
  * Calls [preferredScreenshotMaker] and fallbacks to [fallbackScreenshotMaker] on fail
  */
@@ -10,11 +8,11 @@ class CombinedScreenshotMaker(
     private val fallbackScreenshotMaker: ScreenshotMaker
 ) : ScreenshotMaker {
 
-    override fun takeScreenshot(file: File) {
+    override fun takeScreenshot(screenshotName: String, parentDirPath: String) {
         runCatching {
-            preferredScreenshotMaker.takeScreenshot(file)
+            preferredScreenshotMaker.takeScreenshot(screenshotName, parentDirPath)
         }.onFailure {
-            fallbackScreenshotMaker.takeScreenshot(file)
+            fallbackScreenshotMaker.takeScreenshot(screenshotName, parentDirPath)
         }
     }
 }

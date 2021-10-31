@@ -18,7 +18,7 @@ configure<BaseExtension> {
 
     defaultConfig {
         setMinSdkVersion(21)
-        setTargetSdkVersion(29)
+        setTargetSdkVersion(30)
     }
 
     @Suppress("UnstableApiUsage")

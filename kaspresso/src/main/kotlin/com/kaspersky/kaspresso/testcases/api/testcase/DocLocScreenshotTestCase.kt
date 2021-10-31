@@ -138,8 +138,9 @@ abstract class DocLocScreenshotTestCase(
                 resourcesDirsProvider,
                 resourceFileNamesProvider
             ),
-            screenshotMaker = ExternalScreenshotMaker(kaspresso.instrumentalDependencyProvider),
-            metadataSaver = MetadataSaver(kaspresso.device.activities, kaspresso.device.apps, logger)
+            screenshotMaker = ExternalScreenshotMaker(kaspresso.instrumentalDependencyProvider, device.targetContext.contentResolver),
+            metadataSaver = MetadataSaver(kaspresso.device.activities, kaspresso.device.apps, logger, device),
+            resourceFileNamesProvider = resourceFileNamesProvider
         )
 
         testFailRule.screenshotCapturer = screenshotCapturer

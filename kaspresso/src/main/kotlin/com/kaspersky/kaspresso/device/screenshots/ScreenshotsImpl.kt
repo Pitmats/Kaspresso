@@ -1,7 +1,9 @@
 package com.kaspersky.kaspresso.device.screenshots
 
+import android.os.Build
 import android.util.Log
 import com.kaspersky.kaspresso.device.screenshots.screenshotmaker.ScreenshotMaker
+import com.kaspersky.kaspresso.files.extensions.FileExtension
 import com.kaspersky.kaspresso.files.resources.ResourceFilesProvider
 import com.kaspersky.kaspresso.logger.UiTestLogger
 import java.io.File
@@ -31,7 +33,9 @@ class ScreenshotsImpl(
     private fun doTakeAndApply(tag: String, block: (File.() -> Unit)?) {
         try {
             val screenshotFile: File = resourceFilesProvider.provideScreenshotFile(tag)
-            screenshotMaker.takeScreenshot(screenshotFile)
+            screenshotFile.parentFile?.let {
+                screenshotMaker.takeScreenshot(screenshotFile.name, it.path)
+            }
             block?.invoke(screenshotFile)
             logger.i("Screenshot saved to $screenshotFile")
         } catch (e: Throwable) {

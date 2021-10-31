@@ -732,6 +732,7 @@ data class Kaspresso(
                         preferredScreenshotMaker = InternalScreenshotMaker(activities, screenshotParams),
                         fallbackScreenshotMaker = ExternalScreenshotMaker(
                             instrumentalDependencyProviderFactory.getComponentProvider<ExternalScreenshotMaker>(instrumentation),
+                            instrumentation.targetContext.contentResolver,
                             screenshotParams
                         )
                     )
