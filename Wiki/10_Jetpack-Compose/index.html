@@ -1,0 +1,1328 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../kaspresso.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
+    
+    
+      
+        <title>Jetpack Compose - Kaspresso</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="light-blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jetpack-compose-support-early-access" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Kaspresso" class="md-header__button md-logo" aria-label="Kaspresso" data-md-component="logo">
+      
+  <img src="../../kaspresso.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Kaspresso
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Jetpack Compose
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/KasperskyLab/Kaspresso" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Kaspresso
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Home/Kaspresso/" class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Tutorial/Android_studio/" class="md-tabs__link">
+        Tutorial
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Page%20object%20in%20Kaspresso/" class="md-tabs__link md-tabs__link--active">
+        Wiki
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Issues/Storage_issue/" class="md-tabs__link">
+        Issues
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Kaspresso" class="md-nav__button md-logo" aria-label="Kaspresso" data-md-component="logo">
+      
+  <img src="../../kaspresso.png" alt="logo">
+
+    </a>
+    Kaspresso
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/KasperskyLab/Kaspresso" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Kaspresso
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Home
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Home/Kaspresso/" class="md-nav__link">
+        About Kaspresso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Home/Kaspresso-in-articles/" class="md-nav__link">
+        Kaspresso in articles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Home/Kaspresso-in-videos/" class="md-nav__link">
+        Kasspresso in videos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Home/Kaspresso%20users/" class="md-nav__link">
+        Our users
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Home/Breaking-changes/" class="md-nav__link">
+        Breaking changes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Tutorial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/Android_studio/" class="md-nav__link">
+        Скачиваем проект и Android Studio
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/simple_test/" class="md-nav__link">
+        Ваш первый тест на Kaspresso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/off-screen_work/" class="md-nav__link">
+        Тестирование за рамками приложения
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/Flaky%20safely/" class="md-nav__link">
+        Flaky safely. Сontinuously, compose.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/Kaspresso_scenario/" class="md-nav__link">
+        Использование сценариев в Kaspresso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/adb_commands/" class="md-nav__link">
+        Выполнение adb-команд
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/Device/" class="md-nav__link">
+        Взаимодействуем с Android вне приложения
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/Kaspresso_configurator/" class="md-nav__link">
+        Конфигурирование Kaspresso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/Kaspresso_screenshots/" class="md-nav__link">
+        Скриншот-тесты
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tutorial/Kaspresso_with_allure/" class="md-nav__link">
+        Использование Allure
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Wiki
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wiki" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Wiki
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Page%20object%20in%20Kaspresso/" class="md-nav__link">
+        Page object in Kaspresso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Wrapper_over_Espresso/" class="md-nav__link">
+        Wrapper over Espresso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Wrapper_over_UiAutomator/" class="md-nav__link">
+        Wrapper over UiAutomator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Kaspresso_configurator/" class="md-nav__link">
+        Kaspresso configurator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_How_to_write_autotests/" class="md-nav__link">
+        How to write autotests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Device/" class="md-nav__link">
+        Device
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_AdbServer/" class="md-nav__link">
+        AdbServer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_DocLoc/" class="md-nav__link">
+        DocLoc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_Kaspresso-Robolectric/" class="md-nav__link">
+        Kaspresso Robolectric
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_Kaspresso-Allure/" class="md-nav__link">
+        Kaspresso Allure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Jetpack Compose
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Jetpack Compose
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kakao-compose-library" class="md-nav__link">
+    Kakao Compose library
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kaspresso-interceptors-mechanism" class="md-nav__link">
+    Kaspresso Interceptors mechanism
+  </a>
+  
+    <nav class="md-nav" aria-label="Kaspresso Interceptors mechanism">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#behavior-interceptors" class="md-nav__link">
+    Behavior interceptors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watcher-interceptors" class="md-nav__link">
+    Watcher interceptors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caveats" class="md-nav__link">
+    Caveats
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-else" class="md-nav__link">
+    What else
+  </a>
+  
+    <nav class="md-nav" aria-label="What else">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robolectric-support" class="md-nav__link">
+    Robolectric support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compose-is-compatible-with-all-sweet-kaspresso-extensions" class="md-nav__link">
+    Compose is compatible with all sweet Kaspresso extensions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Issues
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Issues" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Issues
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Issues/Storage_issue/" class="md-nav__link">
+        Storage issues
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kakao-compose-library" class="md-nav__link">
+    Kakao Compose library
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kaspresso-interceptors-mechanism" class="md-nav__link">
+    Kaspresso Interceptors mechanism
+  </a>
+  
+    <nav class="md-nav" aria-label="Kaspresso Interceptors mechanism">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#behavior-interceptors" class="md-nav__link">
+    Behavior interceptors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watcher-interceptors" class="md-nav__link">
+    Watcher interceptors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caveats" class="md-nav__link">
+    Caveats
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-else" class="md-nav__link">
+    What else
+  </a>
+  
+    <nav class="md-nav" aria-label="What else">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robolectric-support" class="md-nav__link">
+    Robolectric support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compose-is-compatible-with-all-sweet-kaspresso-extensions" class="md-nav__link">
+    Compose is compatible with all sweet Kaspresso extensions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/KasperskyLab/Kaspresso/tree/main/docs/content/Wiki/10_Jetpack-Compose.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="jetpack-compose-support-early-access">Jetpack Compose support [Early access]</h1>
+<p><strong>Keep in mind it's early access that may contain bugs. Also, API can be changed, but we are going to avoid it. Be free to create relative issues if you've encountered with any kind of problem.</strong></p>
+<p>Jetpack Compose support consists of two parts: <a href="https://github.com/KakaoCup/Compose">Kakao Compose library</a> and Kaspresso Interceptors mechanism.</p>
+<h2 id="kakao-compose-library">Kakao Compose library</h2>
+<p>All detailed information is available in the <a href="https://github.com/KakaoCup/Compose">README</a> of the library.</p>
+<p>Jetpack Compose support is provided by a separate module to not force developers to up their minSDK version to 21.</p>
+<p>So, first of all, add a dependency to <code>build.gradle</code>:
+<div class="highlight"><pre><span></span><code><span class="n">dependencies</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">androidTestImplementation</span><span class="w"> </span><span class="s2">&quot;com.kaspersky.android-components:kaspresso-compose-support:&lt;latest_version&gt;&quot;</span><span class="w"></span>
+<span class="o">}</span><span class="w"></span>
+</code></pre></div></p>
+<p>In a nutshell, let's see at how Kakao Compose DSL looks like:
+<div class="highlight"><pre><span></span><code><span class="c1">// Screen class</span><span class="w"></span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">ComposeMainScreen</span><span class="p">(</span><span class="n">semanticsProvider</span><span class="p">:</span><span class="w"> </span><span class="n">SemanticsNodeInteractionsProvider</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">ComposeScreen</span><span class="o">&lt;</span><span class="n">ComposeMainScreen</span><span class="o">&gt;</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">semanticsProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">semanticsProvider</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Screen in Kakao Compose can be a Node too due to &#39;viewBuilderAction&#39; param.</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// &#39;viewBuilderAction&#39; param is nullable.</span><span class="w"></span>
+<span class="w">        </span><span class="n">viewBuilderAction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">hasTestTag</span><span class="p">(</span><span class="s">&quot;ComposeMainScreen&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// You can set clear parent-child relationship due to &#39;child&#39; extension</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Here, &#39;simpleFlakyButton&#39; is a child of &#39;ComposeMainScreen&#39; (that is Node too)</span><span class="w"></span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">simpleFlakyButton</span><span class="p">:</span><span class="w"> </span><span class="n">KNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">hasTestTag</span><span class="p">(</span><span class="s">&quot;main_screen_simple_flaky_button&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// This annotation is here to make the test is appropriate for JVM environment (with Robolectric)</span><span class="w"></span>
+<span class="nd">@RunWith</span><span class="p">(</span><span class="n">AndroidJUnit4</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w"></span>
+<span class="c1">// Test class declaration</span><span class="w"></span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">ComposeSimpleFlakyTest</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">TestCase</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">kaspressoBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Kaspresso</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">withComposeSupport</span><span class="p">()</span><span class="w"></span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Special rule for Compose tests</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@get</span><span class="p">:</span><span class="n">Rule</span><span class="w"></span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">composeTestRule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createAndroidComposeRule</span><span class="o">&lt;</span><span class="n">JetpackComposeActivity</span><span class="o">&gt;</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Test DSL. It&#39;s so similar to Kakao or Kautomator DSL</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Test</span><span class="w"></span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">test</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">step</span><span class="p">(</span><span class="s">&quot;Open Flaky screen&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">onComposeScreen</span><span class="o">&lt;</span><span class="n">ComposeMainScreen</span><span class="o">&gt;</span><span class="p">(</span><span class="n">composeTestRule</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">simpleFlakyButton</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">assertIsDisplayed</span><span class="p">()</span><span class="w"></span>
+<span class="w">                    </span><span class="n">performClick</span><span class="p">()</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">step</span><span class="p">(</span><span class="s">&quot;Click on the First button&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">onComposeScreen</span><span class="o">&lt;</span><span class="n">ComposeSimpleFlakyScreen</span><span class="o">&gt;</span><span class="p">(</span><span class="n">composeTestRule</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">firstButton</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">assertIsDisplayed</span><span class="p">()</span><span class="w"></span>
+<span class="w">                    </span><span class="n">performClick</span><span class="p">()</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// ...</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+Again, all related to DSL information is available in <a href="https://github.com/KakaoCup/Compose">the docs</a>.</p>
+<h2 id="kaspresso-interceptors-mechanism">Kaspresso Interceptors mechanism</h2>
+<p>Interceptors are one of the main advantages and powers of Kaspresso library.<br> 
+How interceptors work is described 
+at the <a href="https://proandroiddev.com/kaspresso-the-autotest-framework-that-you-have-been-looking-forward-to-part-i-e102ed384d11">article</a> (look the chapter <em>"Flaky tests and logging"</em>).</p>
+<p>The same principles are using in Kaspresso for Jetpack Compose. 
+Let's enumerate default interceptors that work under the hood by default when you write tests with Kaspresso.</p>
+<h3 id="behavior-interceptors">Behavior interceptors</h3>
+<ol>
+<li><code>FailureLoggingSemanticsBehaviorInterceptor</code><br>
+Build the clear and undestandable exception in case of the test failure.</li>
+<li><code>FlakySafeSemanticsBehaviorInterceptor</code><br>
+Tries to repeat the failed action or assertion during defined timeout. All params for this interceptor are at <code>FlakySafetyParams</code>.</li>
+<li><code>SystemDialogSafetySemanticsBehaviorInterceptor</code><br>
+Eliminates various system dialogs that prevent correct execution of a test.</li>
+<li><code>AutoScrollSemanticsBehaviorInterceptor</code><br>
+Performs autoscrolling to an element if the element is not visible on the screen.</li>
+<li><code>ElementLoaderSemanticsBehaviorInterceptor</code><br>
+Requests the related <code>SemanticNodeInteraction</code> using saved <code>Matcher</code> when the element is not found.</li>
+</ol>
+<h3 id="watcher-interceptors">Watcher interceptors</h3>
+<p><code>LoggingSemanticsWatcherInterceptor</code>. The Interceptor produces human-readable logs. The example:
+<div class="highlight"><pre><span></span><code>I/KASPRESSO: TEST STEP: &quot;1. Open Flaky screen&quot; in ComposeSimpleFlakyTest SUCCEED. It took 0 minutes, 0 seconds and 212 millis. 
+I/KASPRESSO: ___________________________________________________________________________
+I/KASPRESSO: ___________________________________________________________________________
+I/KASPRESSO: TEST STEP: &quot;2. Click on the First button&quot; in ComposeSimpleFlakyTest
+I/KASPRESSO: Operation: Check=IS_DISPLAYED(description={null}).
+    ComposeInteraction: matcher: (hasParentThat(TestTag = &#39;simple_flaky_screen_container&#39;)) &amp;&amp; (TestTag = &#39;simple_flaky_screen_simple_first_button&#39;); position: 0; useUnmergedTree: false.
+I/KASPRESSO: Reloading of the element is started
+I/KASPRESSO: Reloading of the element is finished
+I/KASPRESSO: Repeat action again with the reloaded element
+I/KASPRESSO: Operation: Check=IS_DISPLAYED(description={null}).
+    ComposeInteraction: matcher: (hasParentThat(TestTag = &#39;simple_flaky_screen_container&#39;)) &amp;&amp; (TestTag = &#39;simple_flaky_screen_simple_first_button&#39;); position: 0; useUnmergedTree: false.
+I/KASPRESSO: SemanticsNodeInteraction autoscroll successfully performed.
+I/KASPRESSO: Operation: Check=IS_DISPLAYED(description={null}).
+    ComposeInteraction: matcher: (hasParentThat(TestTag = &#39;simple_flaky_screen_container&#39;)) &amp;&amp; (TestTag = &#39;simple_flaky_screen_simple_first_button&#39;); position: 0; useUnmergedTree: false.
+I/KASPRESSO: Operation: Perform=PERFORM_CLICK(description={null}).
+    ComposeInteraction: matcher: (hasParentThat(TestTag = &#39;simple_flaky_screen_container&#39;)) &amp;&amp; (TestTag = &#39;simple_flaky_screen_simple_first_button&#39;); position: 0; useUnmergedTree: false.
+I/KASPRESSO: TEST STEP: &quot;2. Click on the First button&quot; in ComposeSimpleFlakyTest SUCCEED. It took 0 minutes, 0 seconds and 123 millis. 
+I/KASPRESSO: ___________________________________________________________________________
+I/KASPRESSO: ___________________________________________________________________________
+I/KASPRESSO: TEST STEP: &quot;3. Click on the Second button&quot; in ComposeSimpleFlakyTest
+</code></pre></div></p>
+<h2 id="caveats">Caveats</h2>
+<p>Remember, that Jetpack Compose and all relative tools are developing. 
+It means Jetpack Compose is not learned very well and some things can be unexpected after "Old fashioned View World" experience. 
+Let me show the interesting case.</p>
+<p>For example, this code
+<div class="highlight"><pre><span></span><code><span class="n">composeSimpleFlakyScreen</span><span class="p">(</span><span class="n">composeTestRule</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">firstButton</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">performClick</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+can be the source of flakiness behavior if <code>firstButton</code> is located in non visible for a user area 
+(you just need to scroll to see the element).</p>
+<p>But, this code will always work stably: 
+<div class="highlight"><pre><span></span><code><span class="n">composeSimpleFlakyScreen</span><span class="p">(</span><span class="n">composeTestRule</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">firstButton</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">assertIsDisplayed</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="n">performClick</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<p>The explanation is in the nature of SemanticsNode Tree and Jetpack Compose. <code>firstButton</code> is a Node and presented in the Tree. 
+It means that <code>performClick()</code> may work and nothing bad doesn't happen. But, <code>firstButton</code> is not visible physically and a real click doesn't occur. 
+Such behavior causes the crash of a test a little bit later.<br>
+But, <code>assertIsDisplayed()</code> check doesn't pass on the first try (we don't see the element on the screen) and 
+launches work of all Interceptors including Autoscroll interceptor which scrolls the Screen to the desired element.</p>
+<p>Please, <a href="https://github.com/KasperskyLab/Kaspresso/issues/new">share your experience</a> to help other developers.</p>
+<h2 id="what-else">What else</h2>
+<h3 id="configuration">Configuration</h3>
+<p>Jetpack Compose support is fully configurable. Have a look at various options to configure:
+<div class="highlight"><pre><span></span><code><span class="c1">// We edit only semanticsBehaviorInterceptors</span><span class="w"></span>
+<span class="c1">// Now, semanticsBehaviorInterceptors contains only FailureLoggingSemanticsBehaviorInterceptor</span><span class="w"></span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">ComposeCustomizeTest</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">TestCase</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">kaspressoBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Kaspresso</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">withComposeSupport</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">composeBuilder</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="n">composeBuilder</span><span class="p">.</span><span class="na">semanticsBehaviorInterceptors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">composeBuilder</span><span class="p">.</span><span class="na">semanticsBehaviorInterceptors</span><span class="p">.</span><span class="na">filter</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nb">it</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">FailureLoggingSemanticsBehaviorInterceptor</span><span class="w"></span>
+<span class="w">        </span><span class="p">}.</span><span class="na">toMutableList</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="c1">// We edit flakySafetyParams and semanticsBehaviorInterceptors</span><span class="w"></span>
+<span class="c1">// Also, we change semanticsBehaviorInterceptors where we exclude SystemDialogSafetySemanticsBehaviorInterceptor</span><span class="w"></span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">ComposeCustomizeTest</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">TestCase</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">kaspressoBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Kaspresso</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">withComposeSupport</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// It&#39;s very important to change flakySafetyParams in customize section</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Otherwise, all interceptors will use a default version of flakySafetyParams</span><span class="w"></span>
+<span class="w">        </span><span class="n">customize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">flakySafetyParams</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FlakySafetyParams</span><span class="p">.</span><span class="na">custom</span><span class="p">(</span><span class="n">timeoutMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5000</span><span class="p">,</span><span class="w"> </span><span class="n">intervalMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="n">lateComposeCustomize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">composeBuilder</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="n">composeBuilder</span><span class="p">.</span><span class="na">semanticsBehaviorInterceptors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">composeBuilder</span><span class="p">.</span><span class="na">semanticsBehaviorInterceptors</span><span class="p">.</span><span class="na">filter</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nb">it</span><span class="w"> </span><span class="k">!is</span><span class="w"> </span><span class="n">SystemDialogSafetySemanticsBehaviorInterceptor</span><span class="w"></span>
+<span class="w">            </span><span class="p">}.</span><span class="na">toMutableList</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">).</span><span class="na">apply</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Remember, It&#39;s better to customize ComposeSupport only after Kaspresso customizing</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Because ComposeSupport interceptors can be dependent on some Kaspresso entities</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// For example, changing flakySafetyParams in this section will not affect ComposeSupport interceptors</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="c1">// There is another way to do exactly the same</span><span class="w"></span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">ComposeCustomizeTest</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">TestCase</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">kaspressoBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Kaspresso</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">simple</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">flakySafetyParams</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FlakySafetyParams</span><span class="p">.</span><span class="na">custom</span><span class="p">(</span><span class="n">timeoutMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5000</span><span class="p">,</span><span class="w"> </span><span class="n">intervalMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}.</span><span class="na">apply</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">addComposeSupport</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">composeBuilder</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="n">composeBuilder</span><span class="p">.</span><span class="na">semanticsBehaviorInterceptors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">composeBuilder</span><span class="p">.</span><span class="na">semanticsBehaviorInterceptors</span><span class="p">.</span><span class="na">filter</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nb">it</span><span class="w"> </span><span class="k">!is</span><span class="w"> </span><span class="n">SystemDialogSafetySemanticsBehaviorInterceptor</span><span class="w"></span>
+<span class="w">            </span><span class="p">}.</span><span class="na">toMutableList</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="robolectric-support">Robolectric support</h3>
+<p>You can run your Compose tests on the JVM environment with Robolectric.<br> 
+Run <code>ComposeSimpleFlakyTest</code> (from "kaspresso-sample" module) on the JVM right now:
+<div class="highlight"><pre><span></span><code>./gradlew :samples:kaspresso-compose-support-sample:testDebugUnitTest --info --tests &quot;com.kaspersky.kaspresso.composesupport.sample.test.ComposeSimpleFlakyTest&quot;  
+</code></pre></div>
+All information about Robolectric support is available <a href="../08_Kaspresso-Robolectric/">here</a>.</p>
+<h3 id="compose-is-compatible-with-all-sweet-kaspresso-extensions">Compose is compatible with all sweet Kaspresso extensions</h3>
+<p>Sweet Kaspresso extensions means using of the such constructions as 
+- <code>flakySafely</code>
+- <code>continuously</code></p>
+<p>The support of some constructions is in progress: <a href="https://github.com/KasperskyLab/Kaspresso/issues/317">issue-317</a>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../09_Kaspresso-Allure/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Kaspresso Allure" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Kaspresso Allure
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../Issues/Storage_issue/" class="md-footer__link md-footer__link--next" aria-label="Next: Storage issues" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Storage issues
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.tabs.sticky", "navigation.instant", "navigation.tracking", "navigation.top", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      
+    
+  </body>
+</html>
